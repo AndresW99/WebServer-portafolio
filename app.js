@@ -12,35 +12,35 @@ hbs.registerPartials( __dirname + '/views/partials');
 // Servir contenido estatico
 app.use( express.static('public') );
 
-app.get('/', ( req, res) => {
-    res.render('home', {
-        nombre: 'Andres Wellmann',
-        titulo: 'Aprendiendo Node'
-    });
-});
+// app.get('/', ( req, res) => {
+//     res.render('home', {
+//         nombre: 'Andres Wellmann',
+//         titulo: 'Aprendiendo Node'
+//     });
+// });
 
 // Asi es como servimos los archivos de public con rutas
 // app.get('/generic', ( req, res) => {
 //     res.sendFile(__dirname + '/public/generic.html')
 // });
 
-app.get('/generic', ( req, res) => {
-    res.render('generic', {
-        nombre: 'Paola Juarez',
-        titulo: 'Administradora'
-    });
-});
+// app.get('/generic', ( req, res) => {
+//     res.render('generic', {
+//         nombre: 'Paola Juarez',
+//         titulo: 'Administradora'
+//     });
+// });
 
-app.get('/elements', ( req, res) => {
-    res.render('elements', {
-        nombre: 'Pablo Cruz',
-        titulo: 'Administrador'
-    });
-});
+// app.get('/elements', ( req, res) => {
+//     res.render('elements', {
+//         nombre: 'Pablo Cruz',
+//         titulo: 'Administrador'
+//     });
+// });
 
 // Esto es un comodin por si van a una ruta que no existe
 app.get('*', ( req, res) => {
-    res.send('404 | Page not found');
+    res.sendFile( __dirname + '/public/index.html');
 });
 
 app.listen(port, () => {
